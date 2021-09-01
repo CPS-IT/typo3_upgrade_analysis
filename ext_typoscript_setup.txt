@@ -1,0 +1,10 @@
+module.tx_upgradeanalysis {
+	view {
+		templateRootPaths.10 = EXT:ns_ext_compatibility/Resources/Private/Templates/nsextcompatibility
+		templateRootPaths.20 = EXT:upgrade_analysis/Resources/Private/Templates
+		partialRootPaths.10 = EXT:ns_ext_compatibility/Resources/Private/Partials
+        partialRootPaths.20 = EXT:upgrade_analysis/Resources/Private/Partials
+		layoutRootPaths.10 = EXT:ns_ext_compatibility/Resources/Private/Layouts
+        layoutRootPaths.20 = EXT:upgrade_analysis/Resources/Private/Layouts
+	}
+}
