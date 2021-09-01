@@ -1,0 +1,26 @@
+<table class="typo3-extension-list t3-table table table-striped table-hover" cellspacing="0">
+	<thead>
+		<tr class="x-grid3-header">
+			<th colspan="5"><h2><f:translate key="menuTypes" default="LLL:menuTypes"/></h2></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="bgColor6">
+			<td width="20%"><f:translate key="menuTypes.menuType" default="LLL:menuTypes.menuType"/></td>
+			<td width="20%"><f:translate key="active" default="LLL:active"/></td>
+			<td width="20%"><f:translate key="inactive" default="LLL:inactive"/></td>
+			<td width="20%"><f:translate key="removed" default="LLL:removed"/></td>
+			<td><f:translate key="expired" default="LLL:expired"/></td>
+		</tr>
+		<f:for each="{menuTypes}" as="menuType" iteration="iterator">
+			<tr class="bgColor{f:if(condition: iterator.isOdd, then:'4', else:'6')}">
+				<td width="20%">{menuType.menu_type}</td>
+				<td width="20%">{menuType.active}</td>
+				<td width="20%">{menuType.inactive}</td>
+				<td width="20%">{menuType.removed}</td>
+				<td>{menuType.expired}</td>
+			</tr>
+		</f:for>
+
+	</tbody>
+</table>

@@ -1,0 +1,49 @@
+<table class="typo3-extension-list t3-table table table-striped table-hover" cellspacing="0">
+	<thead>
+		<tr class="x-grid3-header">
+			<th colspan="2"><h2><f:translate key="sysInfo" extensionName="ns_ext_compatibility"/></h2></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="bgColor6">
+			<td width="50%"><f:translate key="currentTypo3Version" extensionName="ns_ext_compatibility"/></td>
+			<td><strong>{sysDetail.typo3version}</strong></td>
+		</tr>
+		<tr class="bgColor4">
+			<td><f:translate key="targetTypo3Version" extensionName="ns_ext_compatibility"/></td>
+			<td><strong>{sysDetail.targetVersion}</strong></td>
+		</tr>
+		<tr class="bgColor6">
+			<td><f:translate key="sysInfo.database" default="LLL:sysInfo.database"/></td>
+			<td><strong>{serverInfo.database}</strong></td>
+		</tr>
+		<tr class="bgColor4">
+			<td><f:translate key="sysInfo.imageRendering" default="LLL:sysInfo.imageRendering"/></td>
+			<td><strong>{serverInfo.imageRendering}</strong></td>
+		</tr>
+		<tr class="bgColor6">
+			<td><f:translate key="sysInfo.applicationContext" default="LLL:sysInfo.applicationContext"/></td>
+			<td><strong>{serverInfo.applicationContext}</strong></td>
+		</tr>
+		<tr class="bgColor4">
+			<td><f:translate key="sysInfo.utf8" default="LLL:sysInfo.utf8"/></td>
+			<td><strong>{serverInfo.utf8}</strong></td>
+		</tr>
+		<tr class="bgColor6">
+			<td><f:translate key="sysInfo.operatingSystem" default="LLL:sysInfo.operatingSystem"/></td>
+			<td><strong>{serverInfo.operatingSystem}</strong></td>
+		</tr>
+		<tr class="bgColor4">
+			<td><f:translate key="sysInfo.webServer" default="LLL:sysInfo.webServer"/></td>
+			<td><strong>{serverInfo.serverSoftware}</strong></td>
+		</tr>
+		<tr class="bgColor6">
+			<td><f:translate key="phpVersion" extensionName="ns_ext_compatibility"/></td>
+			<td><strong>{sysDetail.phpversion}</strong></td>
+		</tr>
+		<tr class="bgColor4">
+			<td><f:translate key="sysInfo.sqlVersion" default="LLL:sysInfo.sqlVersion"/></td>
+			<td><strong>{serverInfo.sqlVersion}</strong></td>
+		</tr>
+	</tbody>
+</table>
