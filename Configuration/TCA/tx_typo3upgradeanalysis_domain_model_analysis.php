@@ -1,6 +1,6 @@
 <?php
 
-$langFile = 'LLL:EXT:upgrade_analysis/Resources/Private/Language/locallang_db.xlf:';
+$langFile = 'LLL:EXT:typo3_upgrade_analysis/Resources/Private/Language/locallang_db.xlf:';
 
 return [
     'ctrl' => [
@@ -23,7 +23,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title,language,last_updated',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('upgrade_analysis') . 'Resources/Public/Icons/tx_zewevents_domain_model_currency.gif'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('typo3_upgrade_analysis') . 'Resources/Public/Icons/tx_zewevents_domain_model_currency.gif'
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, ' .

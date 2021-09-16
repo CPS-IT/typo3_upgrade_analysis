@@ -73,7 +73,7 @@ class TerApiService extends \TYPO3\CMS\Core\Service\AbstractService
     {
         /** @var ConfigurationUtility $configurationUtility */
         $configurationUtility = $this->objectManager->get(ConfigurationUtility::class);
-        $configuration = $configurationUtility->getCurrentConfiguration('upgrade_analysis');
+        $configuration = $configurationUtility->getCurrentConfiguration('typo3_upgrade_analysis');
         return $configuration['ter_access_token']['value'];
     }
 
