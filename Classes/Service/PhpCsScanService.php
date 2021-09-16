@@ -10,9 +10,9 @@
  *   LICENSE.md file that was distributed with this source code.
  */
 
-namespace CPSIT\UpgradeAnalysis\Service;
+namespace CPSIT\Typo3UpgradeAnalysis\Service;
 
-use CPSIT\UpgradeAnalysisTool\Utility\Utility;
+use CPSIT\Typo3UpgradeAnalysis\Utility\Utility;
 use MichielRoos\TYPO3Scan\Command\ScanCommand;
 use Symfony\Component\Process\PhpExecutableFinder;
 

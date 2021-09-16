@@ -10,7 +10,7 @@
  *   LICENSE.md file that was distributed with this source code.
  */
 
-namespace CPSIT\UpgradeAnalysis\Service;
+namespace CPSIT\Typo3UpgradeAnalysis\Service;
 
 use MichielRoos\TYPO3Scan\Command\ScanCommand;
 use SplFileObject;

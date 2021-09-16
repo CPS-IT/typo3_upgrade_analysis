@@ -1,11 +1,8 @@
 <?php
-namespace CPSIT\UpgradeAnalysis\Service;
+namespace CPSIT\Typo3UpgradeAnalysis\Service;
 
-use TYPO3\CMS\Core\Log\Logger;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentValueException;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extensionmanager\Utility\ConfigurationUtility;
 
 class TerApiService extends \TYPO3\CMS\Core\Service\AbstractService

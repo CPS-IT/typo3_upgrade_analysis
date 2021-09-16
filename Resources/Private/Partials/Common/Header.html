@@ -1,6 +1,6 @@
 <h1><f:translate key="typo3upgrade"/></h1>
 <f:form id="changeTargtVersion" action="list" class="form-inline">
-    <select class="form-control" id="targetVersion" onchange="this.form.submit()" name="tx_upgradeanalysis_tools_UpgradeAnalysisUpgradeanalysis[targetVersion]">
+    <select class="form-control" id="targetVersion" onchange="this.form.submit()" name="tx_typo3upgradeanalysis_tools_Typo3UpgradeAnalysisTypo3upgradeanalysis[targetVersion]">
         <option value="{sysDetail.targetVersion}"><f:translate key="option.label"/> {sysDetail.targetVersion}</option>
         <f:if condition="{sysDetail.typo3version}<6">
             <f:if condition="{sysDetail.targetVersion}!='4.x'">

@@ -1,4 +1,4 @@
-module.tx_upgradeanalysis {
+module.tx_typo3upgradeanalysis {
 	view {
 		templateRootPaths.10 = EXT:ns_ext_compatibility/Resources/Private/Templates/nsextcompatibility
 		templateRootPaths.20 = EXT:upgrade_analysis/Resources/Private/Templates

@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_upgradeanalysis_domain_model_analysis'
+# Table structure for table 'tx_typo3upgradeanalysis_domain_model_analysis'
 #
-CREATE TABLE tx_upgradeanalysis_domain_model_analysis (
+CREATE TABLE tx_typo3upgradeanalysis_domain_model_analysis (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,

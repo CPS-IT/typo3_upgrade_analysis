@@ -10,7 +10,7 @@ if (TYPO3_MODE === 'BE') {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
         'CPSIT.upgrade_analysis',
         'tools',	 // Make module a submodule of 'tools'
-        'UpgradeAnalysis',	// Submodule key
+        'Typo3UpgradeAnalysis',	// Submodule key
         '',						// Position
         [
             'UpgradeAnalysis' => 'list'

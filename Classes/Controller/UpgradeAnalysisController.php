@@ -1,5 +1,5 @@
 <?php
-namespace CPSIT\UpgradeAnalysis\Controller;
+namespace CPSIT\Typo3UpgradeAnalysis\Controller;
 
 /**
  *
@@ -8,16 +8,16 @@ namespace CPSIT\UpgradeAnalysis\Controller;
  *
  */
 
-use CPSIT\UpgradeAnalysis\DataProvider\Typo3ExtensionsDataProvider;
-use CPSIT\UpgradeAnalysis\Domain\Model\Analysis;
-use CPSIT\UpgradeAnalysis\Domain\Repository\AnalysisRepository;
-use CPSIT\UpgradeAnalysis\Service\ExtensionScanService;
-use CPSIT\UpgradeAnalysis\Service\LinesOfCodeService;
-use CPSIT\UpgradeAnalysis\Service\PhpCsScanService;
+use CPSIT\Typo3UpgradeAnalysis\DataProvider\Typo3ExtensionsDataProvider;
+use CPSIT\Typo3UpgradeAnalysis\Domain\Model\Analysis;
+use CPSIT\Typo3UpgradeAnalysis\Domain\Repository\AnalysisRepository;
+use CPSIT\Typo3UpgradeAnalysis\Service\ExtensionScanService;
+use CPSIT\Typo3UpgradeAnalysis\Service\LinesOfCodeService;
+use CPSIT\Typo3UpgradeAnalysis\Service\PhpCsScanService;
 use Fr\UpgradeAnalysisTool\Configuration\Argument\PathToReportDirArgument;
 use Fr\UpgradeAnalysisTool\Configuration\Argument\T3RootPathArgument;
 use NITSAN\NsExtCompatibility\Controller\nsextcompatibilityController;
-use CPSIT\UpgradeAnalysis\Service\TerApiService;
+use CPSIT\Typo3UpgradeAnalysis\Service\TerApiService;
 use NITSAN\NsExtCompatibility\Utility\Extension;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Filesystem\Filesystem;

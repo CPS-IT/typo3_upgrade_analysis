@@ -5,5 +5,5 @@ if (!defined('TYPO3_MODE')) {
 }
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\NITSAN\NsExtCompatibility\Controller\nsextcompatibilityController::class] = [
-    'className' => \CPSIT\UpgradeAnalysis\Controller\UpgradeAnalysisController::class
+    'className' => \CPSIT\Typo3UpgradeAnalysis\Controller\UpgradeAnalysisController::class
 ];

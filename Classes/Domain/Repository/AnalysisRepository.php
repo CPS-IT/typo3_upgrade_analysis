@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CPSIT\UpgradeAnalysis\Domain\Repository;
+namespace CPSIT\Typo3UpgradeAnalysis\Domain\Repository;
 
 
 use TYPO3\CMS\Extbase\Persistence\Repository;

@@ -10,7 +10,7 @@
  *   LICENSE.md file that was distributed with this source code.
  */
 
-namespace CPSIT\UpgradeAnalysis\Utility;
+namespace CPSIT\Typo3UpgradeAnalysis\Utility;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;

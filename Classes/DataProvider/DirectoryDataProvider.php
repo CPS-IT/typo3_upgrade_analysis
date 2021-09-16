@@ -11,7 +11,7 @@
  *
  */
 
-namespace CPSIT\UpgradeAnalysis\DataProvider;
+namespace CPSIT\Typo3UpgradeAnalysis\DataProvider;
 
 use Symfony\Component\Finder\Finder;
 

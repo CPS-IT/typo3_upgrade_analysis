@@ -1,6 +1,6 @@
 <?php
 
-namespace CPSIT\UpgradeAnalysis\Domain\Model;
+namespace CPSIT\Typo3UpgradeAnalysis\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 

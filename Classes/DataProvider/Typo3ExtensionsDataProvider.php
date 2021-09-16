@@ -13,7 +13,7 @@ declare(strict_types=1);
  *
  */
 
-namespace CPSIT\UpgradeAnalysis\DataProvider;
+namespace CPSIT\Typo3UpgradeAnalysis\DataProvider;
 
 use Exception;
 

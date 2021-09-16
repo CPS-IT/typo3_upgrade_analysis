@@ -1,6 +1,6 @@
 <?php
 
-namespace CPSIT\UpgradeAnalysis\Service;
+namespace CPSIT\Typo3UpgradeAnalysis\Service;
 
 /**
  * Copyright (c) 2018 Michiel Roos

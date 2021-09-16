@@ -1,5 +1,5 @@
 {
-  "name": "cpsit/upgrade_analysis",
+  "name": "cpsit/typo3_upgrade_analysis",
   "description": "extension that performs an upgrade analysis",
   "type": "typo3-cms-extension",
   "keywords": [
@@ -15,13 +15,18 @@
     }
   ],
   "require": {
-    "typo3/cms-core": "^7.6"
+    "typo3/cms-core": "^7.6",
+    "nitsan/ns_ext_compatibility": "^5.0",
+    "symfony/filesystem": "^5.3",
+    "phpcompatibility/php-compatibility": "^9.3",
+    "squizlabs/php_codesniffer": "*",
+    "michielroos/typo3scan": "^1.7"
   },
   "require-dev": {
     "typo3/cms": "^7.6"
   },
   "replace": {
-    "upgrade_analysis": "self.version"
+    "typo3_upgrade_analysis": "self.version"
   },
   "config": {
     "vendor-dir": ".Build/vendor",

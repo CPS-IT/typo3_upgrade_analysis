@@ -10,12 +10,10 @@
  *   LICENSE.md file that was distributed with this source code.
  */
 
-namespace CPSIT\UpgradeAnalysis\Service;
+namespace CPSIT\Typo3UpgradeAnalysis\Service;
 
-use CPSIT\UpgradeAnalysis\Console\ScanExtensions7;
-use CPSIT\UpgradeAnalysis\Utility\Utility;
+use CPSIT\Typo3UpgradeAnalysis\Utility\Utility;
 use Symfony\Component\Console\Application;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ExtensionScanService
 {
