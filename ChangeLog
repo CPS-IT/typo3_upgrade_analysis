@@ -1,0 +1,8 @@
+2021-09-16         [RELEASE] Release of typo3_upgrade_analysis 0.1.0 (Juliane Wundermann)
+2021-09-16 e27bdf4 [TASK] add funktions (Juliane Wundermann)
+2021-09-16 c8fa53b [TASK] extends domain model analysis (Juliane Wundermann)
+2021-09-16 4de3337 [BUGFIX] correct namespace (Juliane Wundermann)
+2021-09-01 88e2905 [TASK] add templates (Juliane Wundermann)
+2021-09-01 7fd985c [TASK] add table configuration and language files (Juliane Wundermann)
+2021-09-01 4760a3e [TASK] add classes (Juliane Wundermann)
+2021-09-01 4f402d3 [TASK] add configuration (Juliane Wundermann)
