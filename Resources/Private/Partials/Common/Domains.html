@@ -1,0 +1,22 @@
+<table class="typo3-extension-list t3-table table table-striped table-hover" cellspacing="0">
+	<thead>
+		<tr class="x-grid3-header">
+			<th colspan="3"><h2><f:translate key="domains" default="LLL:domains"/></h2></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="bgColor6">
+			<td width="33%"><f:translate key="domains.domain" default="LLL:domains.domain"/></td>
+			<td width="33%"><f:translate key="domains.redirect" default="LLL:domains.redirect"/></td>
+			<td><f:translate key="domains.inactive" default="LLL:domains.inactive"/></td>
+		</tr>
+		<f:for each="{domains}" as="domain" iteration="iterator">
+			<tr class="bgColor{f:if(condition: iterator.isOdd, then:'4', else:'6')}">
+				<td width="33%">{domain.domainName}</td>
+				<td width="33%">{domain.redirectTo}</td>
+				<td>{domain.hidden}</td>
+			</tr>
+		</f:for>
+
+	</tbody>
+</table>

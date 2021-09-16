@@ -1,0 +1,26 @@
+<table class="typo3-extension-list t3-table table table-striped table-hover" cellspacing="0">
+	<thead>
+		<tr class="x-grid3-header">
+			<th colspan="5"><h2><f:translate key="cTypes" default="LLL:cTypes"/></h2></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="bgColor6">
+			<td width="20%"><f:translate key="cTypes.cType" default="LLL:cTypes.domain"/></td>
+			<td width="20%"><f:translate key="active" default="LLL:active"/></td>
+			<td width="20%"><f:translate key="inactive" default="LLL:inactive"/></td>
+			<td width="20%"><f:translate key="removed" default="LLL:removed"/></td>
+			<td><f:translate key="expired" default="LLL:expired"/></td>
+		</tr>
+		<f:for each="{cTypes}" as="cType" iteration="iterator">
+			<tr class="bgColor{f:if(condition: iterator.isOdd, then:'4', else:'6')}">
+				<td width="20%">{cType.CType}</td>
+				<td width="20%">{cType.active}</td>
+				<td width="20%">{cType.inactive}</td>
+				<td width="20%">{cType.removed}</td>
+				<td>{cType.expired}</td>
+			</tr>
+		</f:for>
+
+	</tbody>
+</table>

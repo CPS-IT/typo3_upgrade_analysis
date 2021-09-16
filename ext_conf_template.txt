@@ -1,0 +1,8 @@
+# Records
+###########################
+
+# cat=basic/11;type=options[4.x,6.x,7.x,8.x,9.x,10.x]; label=Typo3 Target Version
+typo3TargetVersion= 10.x
+
+# cat=basic/enable; type=string; label=access token: access token for TER api request
+ter_access_token =
