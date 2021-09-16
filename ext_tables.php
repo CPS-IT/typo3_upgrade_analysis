@@ -8,7 +8,7 @@ if (TYPO3_MODE === 'BE') {
      * Registers a Backend Module
      */
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        'CPSIT.upgrade_analysis',
+        'CPSIT.typo3_upgrade_analysis',
         'tools',	 // Make module a submodule of 'tools'
         'Typo3UpgradeAnalysis',	// Submodule key
         '',						// Position
