@@ -12,7 +12,7 @@ class AnalysisRepository extends Repository
      * @param $extKey
      * @return object
      */
-    public function findByExtensionKey($extKey)
+    public function getAnalysisByExtensionKey($extKey)
     {
         $query = $this->createQuery();
         return $query->matching(

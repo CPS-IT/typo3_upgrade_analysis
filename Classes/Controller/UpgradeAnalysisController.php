@@ -90,18 +90,14 @@ class UpgradeAnalysisController extends nsextcompatibilityController
         $this->persistenceManger = $this->objectManager->get(PersistenceManager::class);
 
 
-        //todo extension müssen gescannt werden
         $targetVersion = $this->request->getArguments()['targetVersion'];
         if ($targetVersion != null) {
             //$targetVersion has format <major version>.x
             preg_match('/\d*/', $targetVersion, $m);
             $this->scanExtensions($m[0]);
+
+            $this->doEffortCalculation();
         }
-
-        //todo
-        $this->getUpgradeCategoriesForExtensions();
-
-        //additional extension information werden in der detail action ausgegeben
 
         //system information
         $systemInfo = [];
@@ -134,7 +130,7 @@ class UpgradeAnalysisController extends nsextcompatibilityController
         }
 
         /** @var Analysis $analysis */
-        $analysis = $this->analysisRepository->findByExtensionKey($extKey);
+        $analysis = $this->analysisRepository->getAnalysisByExtensionKey($extKey);
 
         $extensionInfo = [];
         $extensionInfo['linesOfCode'] = $analysis->getLinesOfCode();
@@ -159,15 +155,17 @@ class UpgradeAnalysisController extends nsextcompatibilityController
                 continue;
             }
 
+            $version = $this->checkExtensionVersion($extKey, $targetVersion);
+            //todo set analysis['compatibleVersion'] = 1 if available
+
             //scan the extensions only if they have not been scanned yet or if it is explicitly requested
             $extKey = $directory->getFilename();
-            $analysis = $this->analysisRepository->findByExtensionKey($extKey);
+            $analysis = $this->analysisRepository->getAnalysisByExtensionKey($extKey);
             if ($analysis === null || $newScanRequested) {
                 $pathToReportDirectory = $this->createReportDirectoryPathForExtension($directory, $reportDirectoryBasePath);
                 $this->processDirectory($directory, $extKey, $pathToReportDirectory, $targetVersion);
+                $this->getUpgradeCategoryForExtension();
             }
-
-            //$version = $this->checkExtensionVersion($extKey, $targetVersion);
         }
     }
 
@@ -224,7 +222,7 @@ class UpgradeAnalysisController extends nsextcompatibilityController
         );
 
         /** @var Analysis $analysis */
-        $analysis = $this->analysisRepository->findByExtensionKey($extKey);
+        $analysis = $this->analysisRepository->getAnalysisByExtensionKey($extKey);
         if ($analysis === null) {
             $analysis = GeneralUtility::makeInstance(Analysis::class);
             $analysis->setExtKey($extKey);
@@ -249,35 +247,64 @@ class UpgradeAnalysisController extends nsextcompatibilityController
 
     }
 
-    protected function getUpgradeCategoriesForExtensions()
+    /**
+     * @param $extKey
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
+     * @throws \TYPO3\CMS\Extbase\Persistence\Exception\UnknownObjectException
+     */
+    protected function getUpgradeCategoryForExtension($extKey)
     {
-        $categories = [
-            0 => 0.25, //system
-            1 => 2, //entfernen/updaten
-            2 => 4, //anpassenGelb
-            3 => 8, //erweitern
+        $analysis = $this->analysisRepository->getAnalysisByExtensionKey($extKey);
+
+        if ($analysis['system']) {
+            $category = 0;
+        } elseif ($analysis['compatibleVersion'] == 1 || $analysis['deaktivieren']) {
+            $category = 1;
+        } elseif ($analysis['phpErrors'] == 0 && $analysis['extensionScanStrongBraking'] == 0 && $analysis['extensionScanStrongDeprecated'] == 0
+            && $analysis['extensionScanWeakBraking'] == 0) {
+            $category = 2;
+        } elseif ($analysis['phpErrors'] == 0 && $analysis['extensionScanStrongBraking'] == 0 && $analysis['extensionScanWeakBraking'] == 0) {
+            $category = 3;
+        } elseif ($analysis['phpErrors'] == 0 && $analysis['extensionScanStrongBraking'] == 0) {
+            $category = 4;
+        } else {
+            $category = 5;
+        }
+
+        $analysis->setCategory($category);
+        $this->analysisRepository->update($analysis);
+        $this->persistenceManger->persistAll();
+
+    }
+
+    /**
+     * @return float|int|mixed
+     */
+    protected function doEffortCalculation()
+    {
+        // $effort = ['category' => 'estimated time per extension (hours)']
+        $effort = [
+            0 => 0.25,
+            1 => 2,
+            2 => 4,
+            3 => 8,
             4 => 20,
-            5 => 64, //anpassenRot
+            5 => 64,
         ];
 
-        $foo = [];
-        $extraProjects = [];
-        //todo Extensions aus der Datenbank laden
+        $extensions = $this->analysisRepository->findAll();
+        $estimatedTime = 0;
         foreach ($extensions as $extension) {
-            if ($extension['system']) {
-                $foo['extensionKey'] = 0;
-            } elseif ($extension['updaten'] || $extension['deaktivieren']) {
-                $foo['extensionKey'] = 1;
-            } elseif ($extension['phpErrors'] == 0 && 'strong$braking' == 0 && 'strong$deprecated' == 0 && 'weak$braking' == 0) {
-                $foo['extensionKey'] = 2;
-            } elseif ($extension['phpErrors'] == 0 && 'strong$braking' == 0 && 'weak$braking' == 0) {
-                $foo['extensionKey'] = 3;
-            } elseif ('LOC' < 0.7) {
-                $foo['extensionKey'] = 5;
+            $category = $extension->getCategory();
+            if ($category == 0) {
+                $estimatedTime += $effort[$category];
             } else {
-                $extraProjects[] = 'extensionKey';
+                $estimatedTime += $effort[$category] * 2;
             }
+
         }
+
+        return $estimatedTime * 1.4;
     }
 
     /**
