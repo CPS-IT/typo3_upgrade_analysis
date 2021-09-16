@@ -7,6 +7,14 @@ CREATE TABLE tx_typo3upgradeanalysis_domain_model_analysis (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	lines_of_code int(11) unsigned DEFAULT '0' NOT NULL,
+	php_warnings int(11) unsigned DEFAULT '0' NOT NULL,
+	php_errors int(11) unsigned DEFAULT '0' NOT NULL,
+	extension_scan_strong_braking int(11) unsigned DEFAULT '0' NOT NULL,
+	extension_scan_weak_braking int(11) unsigned DEFAULT '0' NOT NULL,
+	extension_scan_strong_deprecated int(11) unsigned DEFAULT '0' NOT NULL,
+	extension_scan_weak_deprecated int(11) unsigned DEFAULT '0' NOT NULL,
+	category int(11) unsigned DEFAULT '0' NOT NULL,
+	compatible_version int(11) unsigned DEFAULT '0' NOT NULL,
 	ext_key varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

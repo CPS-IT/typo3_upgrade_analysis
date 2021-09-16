@@ -139,5 +139,77 @@ return [
                 'eval' => 'trim'
             ],
         ],
+        'php_warnings' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.php_warnings',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'php_errors' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.php_errors',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'extension_scan_strong_braking' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.extension_scan_strong_braking',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'extension_scan_weak_braking' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.extension_scan_weak_braking',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'extension_scan_strong_deprecated' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.extension_scan_strong_deprecated',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'extension_scan_weak_deprecated' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.extension_scan_weak_deprecated',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'category' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.category',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
+        'compatible_version' => [
+            'exclude' => 1,
+            'label' => $langFile . 'tx_upgradeanalysis_domain_model_analysis.compatible_version',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+        ],
     ],
 ];
