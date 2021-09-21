@@ -58,6 +58,11 @@ class Analysis extends AbstractEntity
     protected $compatibleVersion = false;
 
     /**
+     * @var bool
+     */
+    protected $deactivated = false;
+
+    /**
      * @return int
      */
     public function getLinesOfCode()
@@ -217,5 +222,20 @@ class Analysis extends AbstractEntity
         $this->compatibleVersion = $compatibleVersion;
     }
 
+    /**
+     * @return bool
+     */
+    public function isDeactivated()
+    {
+        return $this->deactivated;
+    }
+
+    /**
+     * @param bool $deactivated
+     */
+    public function setDeactivated($deactivated)
+    {
+        $this->deactivated = $deactivated;
+    }
 
 }

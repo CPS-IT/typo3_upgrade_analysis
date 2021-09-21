@@ -162,7 +162,7 @@ class UpgradeAnalysisController extends nsextcompatibilityController
             if ($analysis === null || $newScanRequested) {
                 $pathToReportDirectory = $this->createReportDirectoryPathForExtension($directory, $reportDirectoryBasePath);
                 $this->processDirectory($directory, $extKey, $pathToReportDirectory, $targetVersion);
-                $this->getUpgradeCategoryForExtension();
+                $this->getUpgradeCategoryForExtension($extKey);
             }
         }
     }
@@ -196,11 +196,11 @@ class UpgradeAnalysisController extends nsextcompatibilityController
     public function processDirectory(SplFileInfo $directory, $extKey, $pathToReportDirectory, $targetVersion)
     {
         // Execute PhpSc
-        /*$phpScResults = $this->phpScanService->scanDirectory(
+        $phpScResults = $this->phpScanService->scanDirectory(
             $directory->getRealPath(),
             $pathToReportDirectory,
             $targetVersion
-        );*/
+        );
 
         // Execute typo3 scan
         $typo3ScanResults = $this->typo3ExtensionScanService->scanDirectory(
@@ -249,18 +249,26 @@ class UpgradeAnalysisController extends nsextcompatibilityController
      */
     protected function getUpgradeCategoryForExtension($extKey)
     {
+        /** @var Analysis $analysis */
         $analysis = $this->analysisRepository->getAnalysisByExtensionKey($extKey);
 
-        if ($analysis['system']) {
-            $category = 0;
-        } elseif ($analysis['compatibleVersion'] == 1 || $analysis['deaktivieren']) {
+        $analysis->setExtensionScanStrongBraking(11);
+        $analysis->setExtensionScanStrongDeprecated(2);
+        $analysis->setExtensionScanWeakDeprecated(3);
+        $analysis->setPhpWarnings(1);
+
+        //Extensions with category 0 (system extensions) are loaded directly from the database
+        //for the entire calculation
+        if ($analysis->isCompatibleVersion() == 1 || $analysis->isDeactivated()) {
             $category = 1;
-        } elseif ($analysis['phpErrors'] == 0 && $analysis['extensionScanStrongBraking'] == 0 && $analysis['extensionScanStrongDeprecated'] == 0
-            && $analysis['extensionScanWeakBraking'] == 0) {
+        } elseif ($analysis->getPhpErrors() == 0 && $analysis->getExtensionScanStrongBraking() == 0
+            && $analysis->getExtensionScanStrongDeprecated() == 0
+            && $analysis->getExtensionScanWeakBraking() == 0) {
             $category = 2;
-        } elseif ($analysis['phpErrors'] == 0 && $analysis['extensionScanStrongBraking'] == 0 && $analysis['extensionScanWeakBraking'] == 0) {
+        } elseif ($analysis->getPhpErrors() == 0 && $analysis->getExtensionScanStrongBraking() == 0
+            && $analysis->getExtensionScanStrongDeprecated() == 0) {
             $category = 3;
-        } elseif ($analysis['phpErrors'] == 0 && $analysis['extensionScanStrongBraking'] == 0) {
+        } elseif ($analysis->getPhpErrors() == 0 && $analysis->getExtensionScanStrongBraking() == 0) {
             $category = 4;
         } else {
             $category = 5;
