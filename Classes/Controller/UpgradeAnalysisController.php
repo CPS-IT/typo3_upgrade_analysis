@@ -14,8 +14,6 @@ use CPSIT\Typo3UpgradeAnalysis\Domain\Repository\AnalysisRepository;
 use CPSIT\Typo3UpgradeAnalysis\Service\ExtensionScanService;
 use CPSIT\Typo3UpgradeAnalysis\Service\LinesOfCodeService;
 use CPSIT\Typo3UpgradeAnalysis\Service\PhpCsScanService;
-use Fr\UpgradeAnalysisTool\Configuration\Argument\PathToReportDirArgument;
-use Fr\UpgradeAnalysisTool\Configuration\Argument\T3RootPathArgument;
 use NITSAN\NsExtCompatibility\Controller\nsextcompatibilityController;
 use CPSIT\Typo3UpgradeAnalysis\Service\TerApiService;
 use NITSAN\NsExtCompatibility\Utility\Extension;
@@ -176,9 +174,6 @@ class UpgradeAnalysisController extends nsextcompatibilityController
      */
     public function createReportDirectoryPathForExtension($directory, $reportDirectoryBasePath)
     {
-        //$storage = ResourceFactory::getInstance()->getDefaultStorage();
-        //$folderObject = GeneralUtility::makeInstance(ResourceFactory::class)->createFolderObject($storage, $reportDirectoryBasePath, $directory->getFilename());
-
         $pathToReportDirectory = Typo3ExtensionsDataProvider::sanitizeTrailingSeparator(
             $reportDirectoryBasePath . $directory->getFilename()
         );

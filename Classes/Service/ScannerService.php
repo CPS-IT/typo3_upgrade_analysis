@@ -34,7 +34,6 @@ use TYPO3\CMS\Scanner\ScannerFactory;
 
 /**
  * Class ScannerService
- * @package Fr\UpgradeAnalysisTool\Service
  */
 class ScannerService
 {
