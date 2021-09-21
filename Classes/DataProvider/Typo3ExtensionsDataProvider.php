@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the TYPO3 upgrade analysis tool project.
+ * This file is part of the TYPO3 upgrade analysis tool project by Vladimir Falcon Piva.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
